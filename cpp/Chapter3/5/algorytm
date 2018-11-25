@@ -1,0 +1,29 @@
+//algorytm dobry
+//semantyka przenosznie cos nie tak!?
+//https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/
+template<typename T>
+Stack<T> sort(Stack<T> &input)
+{
+    if(input.isEmpty()) return Stack<T>();
+    Stack<T> tempStack;
+    while(!input.isEmpty())
+    {
+        T element = input.pop();
+        while(!tempStack.isEmpty() && tempStack.peek() > element) input.push(tempStack.pop());
+        tempStack.push(move(element));
+    }
+    return forward<StacktempStack;
+}
+
+int main()
+{
+    Stack<int> s;
+    s.push(34);;
+    s.push(3);
+    s.push(31);
+    s.push(98);
+    s.push(92);
+    s.push(23);
+
+    cout << sort(s).peek() << endl;
+}
